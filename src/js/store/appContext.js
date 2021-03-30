@@ -24,8 +24,8 @@ const injectContext = PassedComponent => {
 
 		useEffect(() => {
 
-			/* state.actions.getMovies("http://www.omdbapi.com/?s=batman&apikey=283ad911&page=1"); */
-			state.actions.getMovies("http://www.omdbapi.com/?s=movie&apikey=283ad911&y=2020&page=1")
+			state.actions.getMovies("http://www.omdbapi.com/?s=movie&apikey=283ad911&y=2020&page=1");
+
 		}, []);
 
 		return (

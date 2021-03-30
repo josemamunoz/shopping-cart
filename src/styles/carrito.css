@@ -4,95 +4,76 @@
 li{
   list-style: none;
 }
-.eliminar{
-  margin-left: 10px;
-}
-.btn-primary{
-  position: absolute;
-  top: 440px;
-}
-.boton-eliminar{
-  background-color: #1c1f22;
-  border: none;
+.boton-eliminar-carrito{
   outline: none;
   display: inline-block;
+  padding: 5px;
+  outline: none;
+  margin: 10px;
 }
-.boton-eliminar:hover{
+
+.boton-eliminar-carrito:hover{
   background-color: black;
 }
 .container{
   margin-top: 100px;
 }
 
-#carrito{
-  margin-left: 6px;
+.fila{
+  /* border: solid, 1px, #f1f1f1 ; */
 }
 
-.dropbtn {
-  background-color: #343a40;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-}
-
-/* Dropdown button on hover & focus */
-.dropbtn:hover, .dropbtn:focus {
-  background-color: #1c1f22;
-}
-
-/* The container <div> - needed to position the dropdown content */
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-lista{
-  color: #ffff;
+.container2{
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  margin-top: 100px;
+  border: solid, 1px, #f1f1f1 ;
 }
-.dropdown-lista:hover{
-  background-color: black;
-}
-.dropdown-items{
+.fila-carrito{
   display: flex;
-  flex-direction: column;
-  position: absolute;
-  background-color: #1c1f22;
-  padding: 10px;
+  height: 200px;
+  background-color: #101d4be3;
+  border:solid 1px #c4c2c2;
+  margin: 20px;
+}
+.fila-imagen{
+  margin: 10px;
+}
+.fila-contenido{
+  margin: 20px;
+}
+.fila-titulo{
+  color: #f1f1f1;
+}
+.fila-texto{
+  color: #f1f1f1;
+}
+.resumen{
+  color: #f1f1f1;
+  background-color: #101d4be3;
+  width: 300px;
+  margin: 20px;
+  border:solid 1px #c4c2c2;
 }
 
-/* Dropdown Content (Hidden by Default) */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+.resumen-titulo{
+  color: #f1f1f1;
+  margin: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  
 }
-
-/* Links inside the dropdown */
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
+.resumen-productos{
+  color: #f1f1f1;
+  background-color: #101d4be3;
+  margin: 20px;
 }
-
-/* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #ddd}
-
-/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
-.show {display:block;}
-
-.card-columns {
-  @include media-breakpoint-only(lg) {
-    column-count: 4;
-  }
-  @include media-breakpoint-only(xl) {
-    column-count: 5;
-  }
+.resumen-total{
+  color: #f1f1f1;
+  background-color: #101d4be3;
+  margin: 20px;
+}
+.resumen-item{
+  color: #f1f1f1;
+  margin: 20px;
 }

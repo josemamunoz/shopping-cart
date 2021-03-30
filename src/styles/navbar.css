@@ -50,6 +50,7 @@ a.nav-link{
     position: absolute;
     right: 10px;
     background-color: #0c163ade;
+    display: none;
 }
 .dropdown-lista{
     width: 300px;

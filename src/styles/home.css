@@ -40,15 +40,15 @@ li{
   flex-wrap: wrap;
   flex-direction: row;
   margin: 10px;
-  width: 100%;
+  width: 80vw;
+  height: auto;
   justify-content: center;
   font-family: 'Poppins', sans-serif;
 }
 .card{
   display: flex;
   flex-direction: column;
-  width: 300px;
-  height: auto;
+  width: 200px;
   margin: 10px;
   color: #f1f1f1;
 }
