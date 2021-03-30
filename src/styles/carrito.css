@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo&family=Montserrat&family=Poppins&display=swap');
+
+
+li{
+  list-style: none;
+}
+.eliminar{
+  margin-left: 10px;
+}
+.btn-primary{
+  position: absolute;
+  top: 440px;
+}
+.boton-eliminar{
+  background-color: #1c1f22;
+  border: none;
+  outline: none;
+  display: inline-block;
+}
+.boton-eliminar:hover{
+  background-color: black;
+}
+.container{
+  margin-top: 100px;
+}
+
+#carrito{
+  margin-left: 6px;
+}
+
+.dropbtn {
+  background-color: #343a40;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #1c1f22;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-lista{
+  color: #ffff;
+  display: flex;
+  justify-content: space-between;
+}
+.dropdown-lista:hover{
+  background-color: black;
+}
+.dropdown-items{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  background-color: #1c1f22;
+  padding: 10px;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
+
+.card-columns {
+  @include media-breakpoint-only(lg) {
+    column-count: 4;
+  }
+  @include media-breakpoint-only(xl) {
+    column-count: 5;
+  }
+}
