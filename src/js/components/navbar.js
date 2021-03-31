@@ -21,7 +21,7 @@ export const Navbar = () => {
                     <span className="badge rounded-pill bg-light text-dark">{store.carrito.length}</span>
                 </Link>
 
-                {<div id="myDropdown" className={"dropdown-items"}>
+                {<div id="myDropdown" className="dropdown-items">
                     <ul>
                         {store.carrito.length === 0 ? <div></div> :
                         store.carrito.map((item) =>{

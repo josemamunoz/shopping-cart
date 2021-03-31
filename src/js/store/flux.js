@@ -4,6 +4,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			movies: [],
 			carrito: [],
 			total: undefined,
+			suma: 0,
+			valores: []
 		},
 		actions: {
 			getMovies: async url => {
@@ -18,18 +20,26 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			getCarrito: movie =>{
 				const store = getStore();
-				store.carrito.push(movie)
+				store.carrito.push(movie);
+				store.valores.push(movie.Year);
 				setStore({
-					...store.carrito
+					...store.carrito,
+					suma : (parseInt(store.suma) + parseInt(movie.Year)),
+					...store.valores,
 				})
-				/* console.log(store.favorites) */
 			},
 			removeItems: (evento, item) => {
 				const store = getStore();
 				store.carrito = store.carrito.filter((seleccion) => item.Title !== seleccion.Title);
 				setStore({
-					...store.carrito
+					...store.carrito,
 				})
+			},
+			sumaItems: (items) => {
+				const store = getStore();
+				items.forEach(item => {
+					console.log(item.Year)
+				});
 			}
 			
 	},

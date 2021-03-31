@@ -16,6 +16,10 @@ li{
   padding: 5px;
   outline: none;
 }
+.boton-agregar:active{
+  background-color: #0352a7;
+}
+
 .boton-eliminar{
   background-color: #1c1f22;
   border: none;

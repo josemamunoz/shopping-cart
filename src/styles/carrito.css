@@ -15,11 +15,17 @@ li{
 .boton-eliminar-carrito:hover{
   background-color: black;
 }
-.container{
-  margin-top: 100px;
+
+.container2{
+  margin-top: 200px;
+  width: fit-content;
+  background-color: #101d4be3;
+  margin: auto;
+  display: flex;
 }
 
 .fila{
+  /* background-color: #101d4be3; */
   /* border: solid, 1px, #f1f1f1 ; */
 }
 
@@ -32,6 +38,7 @@ li{
 .fila-carrito{
   display: flex;
   height: 200px;
+  width: 400px;
   background-color: #101d4be3;
   border:solid 1px #c4c2c2;
   margin: 20px;
@@ -53,7 +60,7 @@ li{
   background-color: #101d4be3;
   width: 300px;
   margin: 20px;
-  border:solid 1px #c4c2c2;
+ /*  border:solid 1px #c4c2c2; */
 }
 
 .resumen-titulo{
@@ -63,17 +70,26 @@ li{
   font-size: 18px;
   
 }
-.resumen-productos{
+.resumen-productos, .resumen-entrega, .resumen-total{
+  display: flex;
+  justify-content: space-between;
   color: #f1f1f1;
-  background-color: #101d4be3;
   margin: 20px;
 }
+
 .resumen-total{
-  color: #f1f1f1;
-  background-color: #101d4be3;
-  margin: 20px;
+  padding-top: 20px;
+  border-top: solid 1px #c4c2c2;
 }
-.resumen-item{
+
+.boton-pagar{
+  display: block;
+  margin: auto;
+  width: 80%;
   color: #f1f1f1;
-  margin: 20px;
+  background-color: #007AFF;
+  border: none;
+  border-radius: 6px;
+  padding: 5px;
+  outline: none;
 }

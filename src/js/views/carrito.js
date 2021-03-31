@@ -1,20 +1,17 @@
 import React, { useContext, useState, useEffect } from "react";
 import "../../styles/carrito.css";
 import { Context } from "../store/appContext";
+import getState from "../store/flux";
 
 
 export const Carrito = () => {
 
   const { store, actions } = useContext(Context);
-
-  const [load, setLoad] = useState("")
-  const [show, setShow] = useState("");
-
   return (
     <>
       <div className="container2">
 
-        <div className="fila">
+        <div className="fila" onChange={actions.sumaItems(store.carrito)}>
           {store.carrito.map((movie) => (
 
             <div className="fila-carrito">
@@ -35,9 +32,16 @@ export const Carrito = () => {
 
         <div className="resumen">
           <div className="resumen-titulo">Resumen del pedido</div>
-          <div className="resumen-productos">{store.carrito.length} Productos</div>
-          <div className="resumen-total">Total</div>
-          <button className="resumen-item">Ir a Pagar</button>
+          <div className="resumen-productos">
+          <div className="total-text">{store.carrito.length} Productos</div><div className="total-number"> &#36; {store.suma}</div>
+          </div>
+          <div className="resumen-entrega">
+          <div className="total-text">Entrega</div><div className="total-number"> &#36; 1000</div>
+          </div>
+          <div className="resumen-total">
+            <div className="total-text">Total</div><div className="total-number"> &#36; {store.suma + 1000}</div>
+          </div>
+          <button className="boton-pagar">Ir a Pagar</button>
         </div>
       </div>
 
