@@ -33,7 +33,7 @@ li{
   margin-top: 150px;
   display: flex;
   flex-direction: row;
-  max-width: 1000vw;
+  max-width: 100vw;
   height: 100vh;
   justify-content: center;
   align-content: space-between;
@@ -44,7 +44,7 @@ li{
   flex-wrap: wrap;
   flex-direction: row;
   margin: 10px;
-  width: 80vw;
+  width: 70vw;
   height: auto;
   justify-content: center;
   font-family: 'Poppins', sans-serif;
@@ -53,10 +53,15 @@ li{
   display: flex;
   flex-direction: column;
   width: 200px;
-  margin: 10px;
+  margin: 20px;
   color: #f1f1f1;
 }
-.card-body{
+.card-img{
+  display: block;
+  width: 200px;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .card-title, .card-text{
   margin: 5px;
@@ -126,6 +131,7 @@ li{
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {display:block;}
 
+
 .card-columns {
   @include media-breakpoint-only(lg) {
     column-count: 4;
@@ -133,4 +139,36 @@ li{
   @include media-breakpoint-only(xl) {
     column-count: 5;
   }
+}
+
+.item-agregadofalse{
+  display: none;
+}
+.item-agregadotrue{
+  display: flex;
+  justify-content:space-between;
+  width: 500px;
+  padding: 20px;
+  align-items: center;
+  border-radius: 12px;
+  color: #ffff;
+  position: fixed;
+  top: 120px;
+  right: 20px;
+  margin: auto;
+  background-color: #192b6ebe;
+  cursor: pointer;
+  /* visibility: hidden; */
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;} 
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
 }

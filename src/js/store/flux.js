@@ -5,6 +5,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			carrito: [],
 			total: undefined,
 			suma: 0,
+			itemagregado: [],
 		},
 		actions: {
 			getMovies: async url => {
@@ -20,9 +21,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 			getCarrito: movie =>{
 				const store = getStore();
 				store.carrito.push(movie);
+				store.itemagregado = movie;
 				setStore({
 					...store.carrito,
 					suma : (parseInt(store.suma) + parseInt(movie.Year)),
+					itemagregado: store.itemagregado,
 				})
 			},
 			removeItems: (evento, item) => {

@@ -1,4 +1,4 @@
-import React, { useContext} from "react";
+import React, { useContext, useState} from "react";
 import { Context } from "../store/appContext"
 import "../../styles/navbar.css"
 import { Link } from "react-router-dom";
@@ -6,8 +6,10 @@ import { Link } from "react-router-dom";
 export const Navbar = () => {
 
     const { store, actions } = useContext(Context);
-
+    
+   
     return(
+        <>
         <nav className="navbar" >
             <Link className="navbar-brand" to="/">Peliculas</Link>
             <div className="navbar-drop" id="navbarNavDropdown">
@@ -40,6 +42,9 @@ export const Navbar = () => {
                     </li>
                 </ul>
             </div>
+           
         </nav>
+        
+        </>
    )};
 
