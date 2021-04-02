@@ -1,26 +1,37 @@
 import React, { useContext, useState, useEffect } from "react";
 import "../../styles/carrito.css";
 import { Context } from "../store/appContext";
-import getState from "../store/flux";
+import Pagintaion from "../components/pagination"
 
 
 export const Carrito = () => {
 
   const { store, actions } = useContext(Context);
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [moviesPerPage] = useState(4);
+
+  const indexOfLastMovie = currentPage * moviesPerPage;
+  const indexOfFirstMovie = indexOfLastMovie - moviesPerPage;
+  const currentMovie = store.carrito.slice(indexOfFirstMovie, indexOfLastMovie);
+
+  //Change page
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   return (
     <>
       <div className="container2">
 
         <div className="fila" onChange={actions.sumaItems(store.carrito)}>
-          {store.carrito.map((movie) => (
+          {currentMovie.map((movie) => (
 
             <div className="fila-carrito">
               <img className="fila-imagen " src={`${movie.Poster}`} alt="Card image cap" />
               
               <div className="fila-contenido">
-                  <h5 className="fila-titulo">{movie.Title}</h5>
-                  <p className="fila-texto">{movie.Type}</p>
-                  <p className="fila-texto">{movie.Year}</p>
+                  <h5 className="columna-titulo">{movie.Title}</h5>
+                  <p className="columna-texto">{movie.Type}</p>
+                  <p className="columna-texto">{movie.Year}</p>
                   
                 </div>
                 <a className="boton-eliminar-carrito" onClick={(e) => actions.removeItems(e, movie)}>
@@ -28,6 +39,7 @@ export const Carrito = () => {
                   </a>
             </div>
           ))}
+          <Pagintaion moviesPerPage={moviesPerPage} totalMovies={store.carrito.length} paginate={paginate}/>
         </div>
 
         <div className="resumen">
