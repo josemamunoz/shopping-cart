@@ -14,15 +14,22 @@ export const Carrito = () => {
   const indexOfLastMovie = currentPage * moviesPerPage;
   const indexOfFirstMovie = indexOfLastMovie - moviesPerPage;
   const currentMovie = store.carrito.slice(indexOfFirstMovie, indexOfLastMovie);
-
+  
   //Change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
+ /*  const paginate = (pageNumber) => actions.handlePage(pageNumber); */
+
+  console.log("firstmovie :" + indexOfFirstMovie);
+  console.log("lastmovie :" + indexOfLastMovie);
+  console.log("currentPage :"+ currentPage);
+
+
 
   return (
     <>
       <div className="container2">
 
-        <div className="fila" onChange={actions.sumaItems(store.carrito)}>
+        <div className="fila" /* onChange={actions.sumaItems(store.carrito)} */>
           {currentMovie.map((movie) => (
 
             <div className="fila-carrito">

@@ -36,12 +36,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 					suma : (parseInt(store.suma) - parseInt(item.Year)),
 				})
 			},
-			sumaItems: (items) => {
+			/* handlePage: pageNumber =>{
 				const store = getStore();
-				items.forEach(item => {
-					console.log(item.Year)
-				});
-			}
+				store.currentPage = pageNumber;
+				store.nextPage = pageNumber +1;
+				store.previousPage = pageNumber -1;
+				setStore({
+					currentPage: store.currentPage,
+					nextPage: store.nextPage,
+					previousPage: store.previousPage,
+				})
+			} */
 			
 	},
 };
