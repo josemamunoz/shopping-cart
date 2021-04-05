@@ -9,6 +9,10 @@ export const Home = () => {
 
   const [cerrarPopup, setCerrarPopup] = useState(false)
 
+  function randomPrices() {
+    const randomPrice = (Math.floor(Math.random() * 10) *100)+1000;
+    return randomPrice
+  }
 
   return (
     <>
@@ -27,12 +31,12 @@ export const Home = () => {
             <div className="cards">
             {store.movies.map((movie) => (
               <div className="card">
-                <img className="card-img " src={`${movie.Poster}`} alt="Card image cap" />
-                <button className="boton-agregar" onClick={(e)=> (actions.getCarrito(movie, e), setCerrarPopup(true))} key={movie.imdbID}>Añadir al carrito</button>
+                <div className="card-price">${randomPrices()}</div>
+                  <img className="card-img " src={`${movie.Poster}`} alt="Card image cap" />  
                 <div className="card-body ">
                   <h5 className="card-title">{movie.Title}</h5>
-                  <p className="card-text">{movie.Type}</p>
-                  <p className="card-text">{movie.Year}</p>
+                  <p className="card-text">{movie.Type} - {movie.Year}</p>
+                  <button className="boton-agregar" onClick={(e)=> (actions.getCarrito(movie, e), setCerrarPopup(true))} key={movie.imdbID}>Añadir al carrito</button>
                 </div>
               </div>
                ))}

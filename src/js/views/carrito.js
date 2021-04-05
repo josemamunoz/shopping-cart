@@ -19,9 +19,9 @@ export const Carrito = () => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
  /*  const paginate = (pageNumber) => actions.handlePage(pageNumber); */
 
-  console.log("firstmovie :" + indexOfFirstMovie);
+  /* console.log("firstmovie :" + indexOfFirstMovie);
   console.log("lastmovie :" + indexOfLastMovie);
-  console.log("currentPage :"+ currentPage);
+  console.log("currentPage :"+ currentPage); */
 
 
 

@@ -13,6 +13,7 @@ ul.pagination{
    /*  border:solid 1px darkgray; */
     padding: 2px;
 }
+
 .page-link{
     background-color: #101d4d;
     color: #ffff;
@@ -34,7 +35,10 @@ ul.pagination{
     display: inline-block;
     margin: 4px 2px;
     cursor: pointer;
-
+}
+.pagination-texto{
+    color: #ffff;
+    margin: 5px;
 }
 
 .page-link:hover{

@@ -6,6 +6,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			total: undefined,
 			suma: 0,
 			itemagregado: [],
+			prices: [],
 		},
 		actions: {
 			getMovies: async url => {
