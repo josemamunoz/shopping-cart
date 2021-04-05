@@ -1,3 +1,5 @@
+import { StaticRouter } from "react-router";
+
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -12,9 +14,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 			getMovies: async url => {
 				const response = await fetch(url);
 				const data = await response.json();
+				const actions = getActions();
 				setStore({
 					movies: data.Search,
 					total: data.totalResults,
+				})
+				actions.getPrices();
+				
+			},
+			getPrices: movie => {
+				const store = getStore();
+				const moviePrices = store.movies.map((movie)=>((Math.floor(Math.random() * 10) *100)+1000))
+				setStore({
+					prices: moviePrices,
 				})
 				
 			},

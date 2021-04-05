@@ -14,6 +14,8 @@ export const Home = () => {
     return randomPrice
   }
 
+
+
   return (
     <>
      {store.itemagregado ? 
@@ -31,7 +33,7 @@ export const Home = () => {
             <div className="cards">
             {store.movies.map((movie) => (
               <div className="card">
-                <div className="card-price">${randomPrices()}</div>
+                <div className="card-price">${store.prices[store.movies.indexOf(movie)]}</div>
                   <img className="card-img " src={`${movie.Poster}`} alt="Card image cap" />  
                 <div className="card-body ">
                   <h5 className="card-title">{movie.Title}</h5>
