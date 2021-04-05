@@ -34,11 +34,19 @@ a.nav-link{
     text-decoration: none;
 }
 .dropbtn{
-    background-color: #0c163a;
     outline: none;
+    background-color: #101d4d;
+    color: #ffff;
+    border-radius: 50%;
+    padding: 12px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 40px;
+    cursor: pointer;
 }
 .dropbtn:hover{
-    background-color: #050a1b;
+    background-color: #3845ff;
 }
 .navbar-nav{
     display: flex;

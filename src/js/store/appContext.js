@@ -23,8 +23,7 @@ const injectContext = PassedComponent => {
 		);
 
 		useEffect(() => {
-			/* http://www.omdbapi.com/?s=movie&apikey=283ad911 */
-			/* http://www.omdbapi.com/?s=movie&apikey=283ad911&y=2020&page=1 */
+
 			state.actions.getMovies("http://www.omdbapi.com/?s=movie&apikey=283ad911&page=2");
 
 		}, []);

@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Heebo&family=Montserrat&family=Poppins&display=swap');
 
-
 li{
   list-style: none;
 }
@@ -15,7 +14,30 @@ li{
 .boton-eliminar-carrito:hover{
   background-color: black;
 }
-
+.carrito-vacio{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #f1f1f1;
+  background-color: #101d4be3;
+  width: 300px;
+  height: 300px;
+  margin: auto;
+  margin-top: 200px;
+  border: solid, 1px, #f1f1f1;
+}
+.boton-regresar{
+  color: #ffff;
+  background-color: #3845ff;
+  border: none;
+  border-radius: 6px;
+  margin: 15px 10px 0 10px;
+  padding: 10px;
+  outline: none;
+  font-size: 16px;
+  text-decoration: none;
+}
 .container2{
   width: fit-content;
   background-color: #101d4be3;
@@ -25,6 +47,7 @@ li{
   justify-content: center;
   border: solid, 1px, #f1f1f1 ;
 }
+
 .fila{
   padding: 15px;
 }
@@ -53,6 +76,10 @@ li{
   margin: 0;
 }
 .columna-texto{
+  color: #f1f1f1;
+  margin: 5px;
+}
+.columna-price{
   color: #f1f1f1;
   margin: 5px;
 }

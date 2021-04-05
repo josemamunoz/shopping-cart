@@ -31,13 +31,14 @@ export const Home = () => {
             }
       <div className="container1">
             <div className="cards">
-            {store.movies.map((movie) => (
+            {store.moviesWithprices.map((movie) => (
               <div className="card">
-                <div className="card-price">${store.prices[store.movies.indexOf(movie)]}</div>
+                
                   <img className="card-img " src={`${movie.Poster}`} alt="Card image cap" />  
                 <div className="card-body ">
                   <h5 className="card-title">{movie.Title}</h5>
-                  <p className="card-text">{movie.Type} - {movie.Year}</p>
+               {/*    <p className="card-text">{movie.Type} - {movie.Year}</p> */}
+                  <div className="card-price">${movie.Price}</div>
                   <button className="boton-agregar" onClick={(e)=> (actions.getCarrito(movie, e), setCerrarPopup(true))} key={movie.imdbID}>Añadir al carrito</button>
                 </div>
               </div>

@@ -9,6 +9,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			suma: 0,
 			itemagregado: [],
 			prices: [],
+			moviesWithprices: []
 		},
 		actions: {
 			getMovies: async url => {
@@ -20,6 +21,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					total: data.totalResults,
 				})
 				actions.getPrices();
+				actions.getMoviesWithPrices();
 				
 			},
 			getPrices: movie => {
@@ -30,14 +32,36 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 				
 			},
-
+			getMoviesWithPrices: movies => {
+				const store = getStore();
+				/* store.moviesWithprices(store.movies.map((movie)=>(
+					{ 
+						title: movie.Title,
+						price: store.prices[store.movies.indexOf(movie)],
+						year: movie.Year,
+						imdbID: movie.imdbID,
+						type: movie.Type,
+						poster: movie.Poster
+					}))); */
+				setStore({
+					moviesWithprices: (store.movies.map((movie)=>(
+						{ 
+							Title: movie.Title,
+							Price: store.prices[store.movies.indexOf(movie)],
+							Year: movie.Year,
+							imdbID: movie.imdbID,
+							Type: movie.Type,
+							Poster: movie.Poster
+						})))
+				})
+			},
 			getCarrito: movie =>{
 				const store = getStore();
 				store.carrito.push(movie);
 				store.itemagregado = movie;
 				setStore({
-					...store.carrito,
-					suma : (parseInt(store.suma) + parseInt(movie.Year)),
+		/* 			...store.carrito, */
+					suma : (parseInt(store.suma) + parseInt(movie.Price)),
 					itemagregado: store.itemagregado,
 				})
 			},
@@ -45,21 +69,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const store = getStore();
 				store.carrito = store.carrito.filter((seleccion) => item.Title !== seleccion.Title);
 				setStore({
-					...store.carrito,
-					suma : (parseInt(store.suma) - parseInt(item.Year)),
+		
+					suma : (parseInt(store.suma) - parseInt(item.Price)),
 				})
-			},
-			/* handlePage: pageNumber =>{
-				const store = getStore();
-				store.currentPage = pageNumber;
-				store.nextPage = pageNumber +1;
-				store.previousPage = pageNumber -1;
-				setStore({
-					currentPage: store.currentPage,
-					nextPage: store.nextPage,
-					previousPage: store.previousPage,
-				})
-			} */
+			}
 			
 	},
 };

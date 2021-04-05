@@ -9,7 +9,7 @@ li{
 }
 button.boton-agregar{
   color: #ffff;
-  background-color: #003cff;
+  background-color: #3845ff;
   border: none;
   border-radius: 6px;
   width: 90%;
@@ -77,6 +77,7 @@ button.boton-agregar:active, button.boton-agregar:hover{
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow:hidden;
+  text-align: center;
  
   
 }
@@ -85,8 +86,8 @@ button.boton-agregar:active, button.boton-agregar:hover{
 }
 .card-price{
   color: #ffff;
-  background-color: #0b159e;
-  text-align: center;
+/*   background-color: #0b159e;
+ */  text-align: center;
 }
 #carrito{
   margin-left: 6px;
