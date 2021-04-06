@@ -42,6 +42,7 @@ export const Carrito = () => {
               <p className="columna-texto">{movie.Type}</p>
               <p className="columna-texto">{movie.Year}</p>
               <p className="columna-price">${movie.Price}</p>
+              <input type="number" className="quantity-form" value={movie.units}></input>
               
             </div>
             <a className="boton-eliminar-carrito" onClick={(e) => actions.removeItems(e, movie)}>
@@ -55,10 +56,13 @@ export const Carrito = () => {
     <div className="resumen">
       <div className="resumen-titulo">Resumen del pedido</div>
       <div className="resumen-productos">
-      <div className="total-text">{store.carrito.length} Productos</div><div className="total-number"> &#36; {store.suma}</div>
+        <div className="total-text">{store.carrito.length} Peliculas</div><div className="total-number"> &#36; {store.suma}</div>
+      </div>
+      <div className="resumen-productos">
+        <div className="total-text">{store.totalItems} Productos</div><div className="total-number"> &#36; {store.suma}</div>
       </div>
       <div className="resumen-entrega">
-      <div className="total-text">Entrega</div><div className="total-number"> &#36; 1000</div>
+        <div className="total-text">Entrega</div><div className="total-number"> &#36; 1000</div>
       </div>
       <div className="resumen-total">
         <div className="total-text">Total</div><div className="total-number"> &#36; {store.suma + 1000}</div>

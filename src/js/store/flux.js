@@ -7,6 +7,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			carrito: [],
 			total: undefined,
 			suma: 0,
+			totalItems: 0,
 			itemagregado: [],
 			prices: [],
 			moviesWithprices: []
@@ -34,15 +35,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			getMoviesWithPrices: movies => {
 				const store = getStore();
-				/* store.moviesWithprices(store.movies.map((movie)=>(
-					{ 
-						title: movie.Title,
-						price: store.prices[store.movies.indexOf(movie)],
-						year: movie.Year,
-						imdbID: movie.imdbID,
-						type: movie.Type,
-						poster: movie.Poster
-					}))); */
 				setStore({
 					moviesWithprices: (store.movies.map((movie)=>(
 						{ 
@@ -51,19 +43,41 @@ const getState = ({ getStore, getActions, setStore }) => {
 							Year: movie.Year,
 							imdbID: movie.imdbID,
 							Type: movie.Type,
-							Poster: movie.Poster
+							Poster: movie.Poster,
+							units: 0,
+							unitsxprice: 0						
 						})))
 				})
 			},
 			getCarrito: movie =>{
 				const store = getStore();
-				store.carrito.push(movie);
+				/* store.carrito.push(movie); */
 				store.itemagregado = movie;
+				console.log(movie.units);
+				if(movie.units > 0){
+					movie.units +=1;
+					movie.unitsxprice = movie.unitsxprice + (movie.Price * movie.units);
+					store.suma += movie.unitsxprice ;
+					store.totalItems +=1;
+					console.log(store.totalItems);
+				} else{
+					console.log("menor a 1");
+					store.carrito.push(movie);
+					movie.unitsxprice = movie.Price
+					movie.units +=1;
+					store.suma += movie.unitsxprice ;
+					store.totalItems = store.totalItems + movie.units
+					setStore({
+						itemagregado: store.itemagregado,
+					})
+					console.log(store.totalItems);
+				}
+				/* movie.units > 0 ? movie.units +=1 :
+				movie.units +=1;
 				setStore({
-		/* 			...store.carrito, */
 					suma : (parseInt(store.suma) + parseInt(movie.Price)),
 					itemagregado: store.itemagregado,
-				})
+				}) */
 			},
 			removeItems: (evento, item) => {
 				const store = getStore();

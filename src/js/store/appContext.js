@@ -26,7 +26,7 @@ const injectContext = PassedComponent => {
 
 			state.actions.getMovies("http://www.omdbapi.com/?s=movie&apikey=283ad911&page=2");
 
-		}, []);
+		}, [state.store.carrito]);
 
 		return (
 			<Context.Provider value={state}>
