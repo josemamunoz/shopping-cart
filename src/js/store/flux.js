@@ -10,7 +10,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			totalItems: 0,
 			itemagregado: [],
 			prices: [],
-			moviesWithprices: []
+			moviesWithprices: [],
+			lastMovieRemovedPxC: 0
 		},
 		actions: {
 			getMovies: async url => {
@@ -51,41 +52,49 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			getCarrito: movie =>{
 				const store = getStore();
-				/* store.carrito.push(movie); */
 				store.itemagregado = movie;
 				console.log(movie.units);
 				if(movie.units > 0){
 					movie.units +=1;
 					movie.unitsxprice = movie.unitsxprice + (movie.Price * movie.units);
-					store.suma += movie.unitsxprice ;
-					store.totalItems +=1;
-					console.log(store.totalItems);
+					store.suma += movie.Price;
+					store.totalItems +=1;					
 				} else{
-					console.log("menor a 1");
 					store.carrito.push(movie);
-					movie.unitsxprice = movie.Price
 					movie.units +=1;
-					store.suma += movie.unitsxprice ;
-					store.totalItems = store.totalItems + movie.units
+					store.totalItems +=1;
+					store.suma += movie.Price;
 					setStore({
 						itemagregado: store.itemagregado,
 					})
-					console.log(store.totalItems);
 				}
-				/* movie.units > 0 ? movie.units +=1 :
-				movie.units +=1;
-				setStore({
-					suma : (parseInt(store.suma) + parseInt(movie.Price)),
-					itemagregado: store.itemagregado,
-				}) */
 			},
-			removeItems: (evento, item) => {
+			removeItems: (evento, movie) => {
 				const store = getStore();
-				store.carrito = store.carrito.filter((seleccion) => item.Title !== seleccion.Title);
+				store.carrito = store.carrito.filter((seleccion) => movie.Title !== seleccion.Title);
 				setStore({
-		
-					suma : (parseInt(store.suma) - parseInt(item.Price)),
+					lastMovieRemovedPxC: (movie.units * movie.Price)
 				})
+				store.suma += - store.lastMovieRemovedPxC;
+				setStore({
+					lastMovieRemovedPxC: 0
+				})
+			},
+			addProducts: (movie) =>{
+				const store = getStore();
+				movie.units += 1;
+				store.totalItems += + 1;
+				store.suma += movie.Price;
+			},
+			removeProducts: (movie) =>{
+				const store = getStore();
+				console.log(movie.units)
+				if(movie.units > 1){
+					movie.units += -1
+					store.totalItems += -1
+					store.suma += -movie.Price
+				}
+				
 			}
 			
 	},

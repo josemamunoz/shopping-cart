@@ -7,10 +7,18 @@ import { Link } from "react-router-dom";
 
 export const Carrito = () => {
 
+  const removeIcon = <svg xmlns="http://www.w3.org/2000/svg" height="16px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M19 13H5v-2h14v2z"/></svg>
+  const addIcon = <svg xmlns="http://www.w3.org/2000/svg" height="16px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
   const { store, actions } = useContext(Context);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [moviesPerPage] = useState(4);
+
+  const [handleChange, setHandleChange] = useState([]);
+
+  function changeListener() {
+    setHandleChange([])
+  }
 
   const indexOfLastMovie = currentPage * moviesPerPage;
   const indexOfFirstMovie = indexOfLastMovie - moviesPerPage;
@@ -18,6 +26,14 @@ export const Carrito = () => {
   
   //Change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+  function stateChange() {
+    console.log("stateChange")
+  }
+  useEffect(() => {
+    console.log("suma useeffect: " + store.suma)
+    return ("suma useeffect return: " + store.suma)
+  }, [store.suma])
 
   return (
     <>
@@ -38,12 +54,20 @@ export const Carrito = () => {
           <img className="fila-imagen " src={`${movie.Poster}`} alt="Card image cap" />
           
           <div className="fila-contenido">
-              <h5 className="columna-titulo">{movie.Title}</h5>
-              <p className="columna-texto">{movie.Type}</p>
-              <p className="columna-texto">{movie.Year}</p>
-              <p className="columna-price">${movie.Price}</p>
-              <input type="number" className="quantity-form" value={movie.units}></input>
-              
+              <div className="carrito-div1">
+                <h5 className="columna-titulo">{movie.Title}</h5>
+                <div className="columna-texto">{movie.Type} - {movie.Year}</div>
+              </div>
+              <div className="carrito-div2">
+                <div className="carrito-input">
+                  <div className="remove-button" onClick={()=>(actions.removeProducts(movie), changeListener())} >{removeIcon}</div>
+                  <input type="number" className="quantity-form" value={movie.units}></input>
+                  <div className="add-button" onClick={()=>(actions.addProducts(movie), changeListener())} onChange={()=> console.log("onchange")}>{addIcon}</div>
+                </div>
+              </div>
+              <div className="carrito-div3">
+              <div className="columna-price">${movie.Price * movie.units}</div>
+              </div>
             </div>
             <a className="boton-eliminar-carrito" onClick={(e) => actions.removeItems(e, movie)}>
                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
