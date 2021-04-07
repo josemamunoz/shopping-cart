@@ -11,7 +11,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			itemagregado: [],
 			prices: [],
 			moviesWithprices: [],
-			lastMovieRemovedPxC: 0
+			lastMovieRemovedPxC: 0,
+			lastMovieRemovedItems: 0,
 		},
 		actions: {
 			getMovies: async url => {
@@ -73,11 +74,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const store = getStore();
 				store.carrito = store.carrito.filter((seleccion) => movie.Title !== seleccion.Title);
 				setStore({
-					lastMovieRemovedPxC: (movie.units * movie.Price)
+					lastMovieRemovedPxC: (movie.units * movie.Price),
+					lastMovieRemovedItems: movie.units
 				})
 				store.suma += - store.lastMovieRemovedPxC;
+				store.totalItems += - store.lastMovieRemovedItems;
 				setStore({
-					lastMovieRemovedPxC: 0
+					lastMovieRemovedPxC: 0,
+					lastMovieRemovedItems: 0
 				})
 			},
 			addProducts: (movie) =>{

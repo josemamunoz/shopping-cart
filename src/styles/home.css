@@ -17,6 +17,7 @@ button.boton-agregar{
   padding: 5px;
   outline: none;
   font-size: 16px;
+  transition: .2s border ease-in-out, .2s background ease-in-out, .2s color ease-in-out;
 }
 button.boton-agregar:active, button.boton-agregar:hover{
   background-color: #042eb6;
